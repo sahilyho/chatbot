@@ -1,5 +1,5 @@
 /** @format */
-
+require("dotenv").config();
 const sendBtn = document.getElementById("sendBtn");
 const textbox = document.getElementById("textbox");
 const chatContainer = document.getElementById("chatContainer");
@@ -259,7 +259,7 @@ function processUserInput(e) {
 		analyzeMessage();
 	}
 }
-WEATHER_API_KEY = "357a0df1290d1a9c1ccd1089c4da32ec";
+const WEATHER_API_KEY = process.env.WEATHER_API_KEY;
 // Get the weather
 async function getWeather() {
 	try {
@@ -285,7 +285,7 @@ function getCurrentPosition() {
 		navigator.geolocation.getCurrentPosition(resolve, reject);
 	});
 }
-STOCK_API_KEY = "4a228a53e5c941c78e529954bc69edc5";
+const STOCK_API_KEY = process.env.STOCK_API_KEY;
 
 // Get stock prices
 async function getStockPrices(ticker, price) {
